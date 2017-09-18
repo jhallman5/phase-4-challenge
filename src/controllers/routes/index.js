@@ -1,10 +1,14 @@
 const router = require('express').Router()
 const Album = require('../../models/albums')
+const Reviews = require('../../models/reviews')
 
 router.get('/', (req, res) => {
    Album.getAlbums()
     .then(albums => {
-      res.render('home', {albums})
+      Reviews.getNumberOfReviews(3)
+        .then(reviews => {
+          res.render('home', {albums, reviews})
+        })
     })
     .catch(error => {
       res.status(500).render('error', {error})
