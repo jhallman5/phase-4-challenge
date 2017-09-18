@@ -1,47 +1,23 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./db')
+const routes = require('./controllers/routes')
 
 const port = process.env.PORT || 3000
 
-const app = express()
+const server = express()
 
 require('ejs')
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'))
+server.set('view engine', 'ejs')
+server.set('views', path.join(__dirname, 'views'))
 
-app.use('/bulma', express.static('node_modules/bulma/css'))
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyParser.urlencoded({extended: false}))
+server.use('/bulma', express.static('node_modules/bulma/css'))
+server.use(express.static(path.join(__dirname, 'public')))
+server.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      res.render('home', {albums})
-    }
-  })
-})
+server.use(routes)
 
-app.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
 
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      const album = albums[0]
-      res.render('album', {album})
-    }
-  })
-})
-
-app.use((req, res) => {
-  res.status(404).render('not_found')
-})
-
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Listening on http://localhost:${port}...`)
 })
