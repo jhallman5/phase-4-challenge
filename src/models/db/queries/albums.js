@@ -1,7 +1,7 @@
 const db = require('../init')
 
 const getAlbums = () =>
-   db.any('SELECT * FROM albums')
+  db.any('SELECT * FROM albums')
 
 
 const getAlbumsByID = (albumID) =>
