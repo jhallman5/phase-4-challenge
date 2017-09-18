@@ -1,0 +1,33 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<section class="hero">
+  <img class="cover-photo" src="http://i.ebayimg.com/00/s/NjAyWDc5OA==/z/JJYAAOSwy4hUUM7I/$_32.JPG?set_id=880000500F" />
+</section>
+
+<div class="columns">
+
+  <div class="column is-offset-2 is-4">
+    <h2>Records</h2>
+    <div class="album-list">
+      <% albums.forEach(function(album) { %>
+        <div>
+          <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+          <span><%= album.artist %></span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="column is-offset-1 is-4">
+    <h2>Recent Reviews</h2>
+    <div class="review-list">
+      <div>1</div><br />
+      <div>2</div><br />
+      <div>3</div><br />
+    </div>
+  </div>
+</div>
+
+
+  <%- include partials/footer %>

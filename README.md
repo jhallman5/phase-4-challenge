@@ -33,3 +33,4 @@ Use the following commands to set up and seed your database:
 
 ## Issues
 Nav bar disappears when the window size changes
+Cover- photo doesnt play nice with window size changes
