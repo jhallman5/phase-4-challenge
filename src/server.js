@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./db')
+const db = require('./models/albums')
 
 const port = process.env.PORT || 3000
 
@@ -16,26 +16,25 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
+   db.getAlbums()
+    .then(albums => {
       res.render('home', {albums})
-    }
-  })
+    })
+    .catch(error => {
+      res.status(500).render('error', {error})
+    })
 })
 
 app.get('/albums/:albumID', (req, res) => {
   const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
+  db.getAlbumsByID(albumID)
+    .then(albums => {
       const album = albums[0]
       res.render('album', {album})
-    }
-  })
+    })
+    .catch(error => {
+      res.status(500).render('error', {error})
+    })
 })
 
 app.use((req, res) => {
