@@ -18,11 +18,14 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/sign-in', (req, res) => {
+  res.render('sign-in')
+})
 router.use('/user', userRouter)
 router.use('/albums', albumRouter)
 
 router.use((req, res) => {
-  res.status(404).render('not_found')
+  res.status(404).render('not-found')
 })
 
 module.exports = router

@@ -4,7 +4,7 @@ const Album = require('../../models/albums')
 router.get('/:albumId/reviews/new', (req,res) => {
   Album.findById(req.params.albumId)
     .then(album =>
-      res.render('new_review', {album})
+      res.render('new-review', {album})
     )
 })
 
