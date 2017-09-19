@@ -7,11 +7,22 @@ const getAlbums = () =>
     })
 
 
-const getAlbumsByID = (albumID) => {
-  return Albums.getAlbumsByID(albumID)
-}
+const findByID = (albumID) =>
+  Albums.findByID(albumID)
+    .then(album => ({
+      id: album[0].album_id,
+      title: album[0].title,
+      artist: album[0].artist,
+      reviews: album.map(review => ({
+        id: review.review_id,
+        user_id: review.user_id,
+        username: review.username,
+        content: review.content,
+        created_on: review.created_on
+      }))
+    }))
 
 module.exports = {
   getAlbums,
-  getAlbumsByID,
+  findByID,
 }
