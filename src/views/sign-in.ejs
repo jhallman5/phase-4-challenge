@@ -1,0 +1,15 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<form class="feild column is-4 is-offset-4" method="post" action="/sign-in">
+  <div class="has-text-centered title">
+    Sign In
+  </div>
+  <div class="control">
+    <input class="input" type="text" name="email" placeholder="Email" value="jhallman5@gmail.com" />
+    <input class="input" type="text" name="password" placeholder="Password" value="tomato" />
+    <button class="button" type="submit">Sign-in</button>
+  </div>
+</form>
+
+<%- include partials/footer %>

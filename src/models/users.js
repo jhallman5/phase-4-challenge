@@ -16,7 +16,10 @@ const findById = (id) =>
         }))
     }))
 
+const findByEmail = (email) =>
+  User.findByEmail(email)
 
 module.exports = {
-  findById
+  findById,
+  findByEmail
 }
