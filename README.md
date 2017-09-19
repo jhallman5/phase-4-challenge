@@ -32,8 +32,9 @@ Use the following commands to set up and seed your database:
 
 
 ## Issues
-Nav bar disappears when the window size changes
-Cover- photo doesnt play nice with window size changes
-improve naming convention of Reviews.getNumberOfReviews
-Add moment to user profile
-user.findById ALSO brings user's reviews 
+1. Nav bar disappears when the window size changes
+1. Cover- photo doesnt play nice with window size changes
+1. improve naming convention of Reviews.getNumberOfReviews
+1. Add moment to user profile
+1. user.findById ALSO brings user's reviews
+1. Add bcrypt
