@@ -6,8 +6,10 @@
     <div class="navbar-end">
       <a class="navbar-item" href="/sign-in">Sign In</a>
       <a class="navbar-item" href="/sign-up">Sign Up</a>
-      <a class="navbar-item">Profile</a>
+      <% if(locals.session) { %>
+      <a class="navbar-item" href="/profile">Profile</a>
       <a class="navbar-item" href="/sign-out">Sign Out</a>
+      <% } %>
     </div>
   </div>
 </nav>

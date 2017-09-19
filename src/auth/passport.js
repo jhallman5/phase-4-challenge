@@ -7,7 +7,6 @@ passport.use('local', new LocalStrategy({
 }, (email, password, done) =>
   User.findByEmail(email)
     .then(user => {
-      console.log( "=-=-=-> email, password, user", email, password, user )
       if(!user) return done(null, false)
       if(user.password != password) return done(null, false)
       return done(null, user)

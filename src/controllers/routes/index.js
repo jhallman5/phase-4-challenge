@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     .then(albums => {
       Reviews.getNumberOfReviews(3)
         .then(reviews => {
-          res.render('home', {albums, reviews})
+          res.render('home', {albums, reviews, session: req.session.passport})
         })
     })
     .catch(error => {
@@ -28,7 +28,7 @@ router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
 
-router.post('/sign-in', (req, res) => {
+router.post('/sign-up', (req, res) => {
   const { username, email, password } = req.body
 
 })
