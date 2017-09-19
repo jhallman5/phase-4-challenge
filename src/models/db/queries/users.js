@@ -1,9 +1,8 @@
 const db = require('../init')
 
 const findById = (id) =>
-  db.one('SELECT * FROM users WHERE id = $1',[id])
+  db.any('SELECT *, reviews.id AS review_id FROM users LEFT OUTER JOIN reviews ON users.id = reviews.user_id WHERE users.id = $1 ',[id])
 
 module.exports = {
   findById
 }
-  
