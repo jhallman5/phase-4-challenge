@@ -1,7 +1,17 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-<div>
-  Hi <%= user.username %>
+<div class="columns">
+  <div class="card column is-3">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      username: <%= user.username %><br />
+      email: <%= user.email %>
+      member since: <%= user.member_since %>
+    </div>
 </div>
 <%- include partials/footer %>
