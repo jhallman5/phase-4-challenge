@@ -1,6 +1,10 @@
 const router = require('express').Router()
+const userRouter = require('./users')
+
 const Album = require('../../models/albums')
 const Reviews = require('../../models/reviews')
+
+
 
 router.get('/', (req, res) => {
    Album.getAlbums()
@@ -26,6 +30,8 @@ router.get('/albums/:albumID', (req, res) => {
       res.status(500).render('error', {error})
     })
 })
+
+router.use('/user', userRouter)
 
 router.use((req, res) => {
   res.status(404).render('not_found')

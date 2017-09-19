@@ -1,0 +1,37 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<div class="columns">
+  <div class="card column is-3">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      username: <%= user.username %><br />
+      email: <%= user.email %>
+      member since: <%= user.member_since %>
+    </div>
+  </div>
+  <div class="column is-offset-1 is-4">
+    Reviews
+    <% user.reviews.forEach(function(review) { %>
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <em><%= review.album_title %></em> <small><%= review.created_on %></small> <br />
+                <%= review.content %>
+
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include partials/footer %>
