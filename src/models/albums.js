@@ -1,3 +1,4 @@
+const moment = require('moment')
 const Albums = require('./db/queries/albums')
 
 const getAlbums = () =>
@@ -7,8 +8,8 @@ const getAlbums = () =>
     })
 
 
-const findByID = (albumID) =>
-  Albums.findByID(albumID)
+const findById = (albumId) =>
+  Albums.findById(albumId)
     .then(album => ({
       id: album[0].album_id,
       title: album[0].title,
@@ -18,11 +19,11 @@ const findByID = (albumID) =>
         user_id: review.user_id,
         username: review.username,
         content: review.content,
-        created_on: review.created_on
+        created_on: moment(review.created_on).format('MMM Do YYYY')
       }))
     }))
 
 module.exports = {
   getAlbums,
-  findByID,
+  findById,
 }

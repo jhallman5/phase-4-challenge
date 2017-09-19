@@ -1,0 +1,20 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<div class="columns">
+  <div class="column is-offset-3 is-6">
+    New review for <em><%= album.title %></em>
+    <form class="field" method="POST" action="/<%= album.id %>/reviews/new">
+      <div class="control">
+        <textarea class="textarea" placeholder="Let us know your thoughts!"></textarea>
+        <div class="columns">
+          <div class="column is-offset-9">
+            <button class="button ">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include partials/footer %>

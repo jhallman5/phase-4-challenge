@@ -1,10 +1,16 @@
 const router = require('express').Router()
 const Album = require('../../models/albums')
 
+router.get('/:albumId/reviews/new', (req,res) => {
+  Album.findById(req.params.albumId)
+    .then(album =>
+      res.render('new_review', {album})
+    )
+})
 
-router.get('/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-  Album.findByID(albumID)
+
+router.get('/:albumId', (req, res) => {
+  Album.findById(req.params.albumId)
     .then(album => {
       res.render('album', {album})
     })

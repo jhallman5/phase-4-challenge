@@ -9,14 +9,28 @@
 <div class="columns">
   <div class="column is-offset-3 is-6">
     <div class="columns">
-      <div class="column is-3">
+      <div class="column is-offset-1 is-3">
         Reviews
       </div>
-      <div class="column is-offset-1 is-3">
-        Add Review
+      <div class="column is-offset-4 is-3">
+        <a class="button" href="/albums/<%= album.id %>/reviews/new" >Add Review</a>
       </div>
     </div>
-    hi
+    <% album.reviews.forEach(function(review) { %>
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <em><%= review.album_title %></em> <small><%= review.created_on %></small> <br />
+                <%= review.content %><br />
+                by <%= review.username %>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% }) %>
   </div>
 </div>
 
