@@ -1,0 +1,31 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <div class="level">
+          <div class="level-left">
+            <a href="/albums/<%= review.album_id %>"> <em><%= review.album_title %></em></a>
+          </div>
+          <div class="level-right">
+            <small><%= review.created_on %></small>
+          </div>
+        </div>
+        <div class="level">
+          <%= review.content %>
+        </div>
+          <div class="level">
+            <div class="level-left">
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                by
+              </div>
+              <div class="level-item">
+                <a href="/<%= review.user_id %>"><%= review.username %></a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </article>
+</div>
