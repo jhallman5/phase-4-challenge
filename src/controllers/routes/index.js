@@ -20,10 +20,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/sign-up',(req, res) => {
+  res.render('sign-up')
+})
+
 router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
 
+router.post('/sign-in', (req, res) => {
+  const { username, email, password } = req.body
+
+})
 router.post('/sign-in', (req, res, next) =>{
   passport.authenticate('local',{ successRedirect: '/profile',
                                   failureRedirect: '/'})(req, res, next)
@@ -31,6 +39,10 @@ router.post('/sign-in', (req, res, next) =>{
 
 router.get('/profile', (req, res) => {
   res.redirect(`/user/${req.user.id}`)
+})
+
+router.get('/sign-out', (req, res) => {
+  req.session.destroy(() => res.redirect('/'))
 })
 
 router.use('/user', userRouter)

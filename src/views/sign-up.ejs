@@ -1,0 +1,49 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<form class="feild column is-4 is-offset-4" method="POST" action="/sign-up">
+  <div class="has-text-centered title">
+    Sign Up for Vinyl
+  </div>
+  <div class="control">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          Name:
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <input class="input" type="text" name="username" required pattern="\w+"  />
+        </div>
+      </div>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          Email:
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <input class="input" type="text" name="email" required pattern="\w+" />
+        </div>
+      </div>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          Password:
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+        <input class="input" type="text" name="password" required pattern="\w+" />
+        </div>
+      </div>
+    </div>
+    <button class="button" type="submit">Sign up</button>
+  </div>
+</form>
+
+<%- include partials/footer %>
