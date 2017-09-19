@@ -4,10 +4,10 @@ const getAlbums = () =>
   db.any('SELECT * FROM albums')
 
 
-const getAlbumsByID = (albumID) =>
-  db.any('SELECT * FROM albums WHERE id = $1', [albumID])
+const findById = (albumId) =>
+  db.any('SELECT *, reviews.id AS review_id FROM albums LEFT OUTER JOIN reviews ON albums.id = reviews.album_id LEFT OUTER JOIN users ON reviews.user_id = users.id WHERE albums.id = $1', [albumId])
 
 module.exports = {
   getAlbums,
-  getAlbumsByID,
+  findById,
 }

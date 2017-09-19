@@ -1,9 +1,38 @@
 <%- include partials/header %>
 
-  <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
-
-  <h2>Reviews</h2>
+<section class="hero">
+  <div class="hero-body">
+    <h1 class="title"><%= album.title %></h1>
+    <h2 class="subtitle">by <em><%= album.artist %></em></h2>
+  </div>
+</section>
+<div class="columns">
+  <div class="column is-offset-3 is-6">
+    <div class="columns">
+      <div class="column is-offset-1 is-3">
+        Reviews
+      </div>
+      <div class="column is-offset-4 is-3">
+        <a class="button" href="/albums/<%= album.id %>/reviews/new" >Add Review</a>
+      </div>
+    </div>
+    <% album.reviews.forEach(function(review) { %>
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <em><%= review.album_title %></em> <small><%= review.created_on %></small> <br />
+                <%= review.content %><br />
+                by <%= review.username %>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% }) %>
+  </div>
+</div>
 
   <!-- TODO: implement album reviews -->
 
