@@ -19,6 +19,7 @@ const findById = (id) =>
           created_on: moment(review.created_on).format('MMM Do YYYY')
         }))
     }))
+    .catch( error => console.log('error in model' , error))
 
 const findByEmail = (email) =>
   User.findByEmail(email)
@@ -34,7 +35,9 @@ bcrypt.hash(password, 10)
       member_since: moment(user[0].member_since).format('MMM Do YYYY'),
       reviews: null
     }))
+    .catch( error => console.log('error in model' , error))
   )
+  .catch( error => console.log('error in model from bcrypt' , error))
 
 module.exports = {
   findById,

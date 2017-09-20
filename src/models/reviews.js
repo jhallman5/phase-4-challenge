@@ -7,6 +7,7 @@ const getNumberOfReviews = (numOfReviews) =>
       reviews.forEach(review => review.created_on = moment(review.created_on).format('MMM Do YYYY'))
       return reviews
     })
+    .catch( error => console.log('error in model' , error))
 
 const create = (userId, albumId, content) =>
   Reviews.create(userId, albumId, content)

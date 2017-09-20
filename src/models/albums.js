@@ -20,6 +20,7 @@ const findById = (albumId) =>
         created_on: moment(review.created_on).format('MMM Do YYYY')
       }))
     }))
+    .catch( error => console.log('error in model' , error))
 
 module.exports = {
   getAlbums,
