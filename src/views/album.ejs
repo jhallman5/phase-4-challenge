@@ -18,19 +18,7 @@
       </div>
     </div>
     <% album.reviews.forEach(function(review) { %>
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <em><%= review.album_title %></em> <small><%= review.created_on %></small> <br />
-                <%= review.content %><br />
-                by <%= review.username %>
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <%- include partials/review-card %>
     <% }) %>
   </div>
 </div>

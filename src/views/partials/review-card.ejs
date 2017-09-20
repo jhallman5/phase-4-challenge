@@ -4,14 +4,25 @@
       <div class="content">
         <div class="level">
           <div class="level-left">
-            <a href="/albums/<%= review.album_id %>"> <em><%= review.album_title %></em></a>
+            <a href="/albums/<%= review.album_id %>"> <em><%= review.title %></em></a>
           </div>
           <div class="level-right">
             <small><%= review.created_on %></small>
           </div>
         </div>
         <div class="level">
+          <div class="level-left">
           <%= review.content %>
+          </div>
+          <% if(locals.user) { %>
+            <% if(locals.user.id === review.user_id) { %>
+              <div class="level-right has-icons">
+                <button class="button is-small">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </div>
+            <% } %>
+          <% } %>
         </div>
           <div class="level">
             <div class="level-left">
@@ -21,7 +32,7 @@
                 by
               </div>
               <div class="level-item">
-                <a href="/<%= review.user_id %>"><%= review.username %></a>
+                <a href="/users/<%= review.user_id %>"><%= review.username %></a>
               </div>
             </div>
           </div>

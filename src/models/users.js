@@ -12,7 +12,7 @@ const findById = (id) =>
           id: review.review_id,
           user_id: review.user_id,
           username: review.username,
-          album_title: review.title,
+          title: review.title,
           album_id: review.album_id,
           content: review.content,
           created_on: moment(review.created_on).format('MMM Do YYYY')

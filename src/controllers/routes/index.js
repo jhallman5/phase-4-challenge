@@ -38,14 +38,14 @@ router.post('/sign-in', (req, res, next) =>{
 })
 
 router.get('/profile', (req, res) => {
-  res.redirect(`/user/${req.user.id}`)
+  res.redirect(`/users/${req.user.id}`)
 })
 
 router.get('/sign-out', (req, res) => {
   req.session.destroy(() => res.redirect('/'))
 })
 
-router.use('/user', userRouter)
+router.use('/users', userRouter)
 router.use('/albums', albumRouter)
 
 router.use((req, res) => {
