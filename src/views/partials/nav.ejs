@@ -1,8 +1,13 @@
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">Vinyl</a>
+    <button class="button navbar-burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
-  <div class="navbar-menu">
+  <div class="navbar-menu"  id="navMenu">
     <div class="navbar-end">
       <% if(locals.session) { %>
         <a class="navbar-item" href="/profile">Profile</a>
