@@ -1,18 +1,28 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-<div class="columns">
-  <div class="card column is-3">
-    <div class="card-image">
-      <figure class="image is-4by3">
+<div class="level">
+  <div class="level-left">
+    <div class="image level-item">
+      <figure class="image is-128x128">
         <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
       </figure>
     </div>
-    <div class="card-content">
-      username: <%= user.username %><br />
-      email: <%= user.email %>
+    <div class="level-item has-text-centered">
+      <div class="level">
+          <div class="level-left">
+            <strong class="title"><%= user.username %></strong>
+          </div>
+      </div>
+      <div class="level">
+          <div class="level-left">
+      email: <%= user.email %><br />
       member since: <%= user.member_since %>
     </div>
+</div>
+    </div>
+  </div>
+
   </div>
   <div class="column is-offset-1 is-4">
     Reviews
