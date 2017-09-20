@@ -1,4 +1,4 @@
-<div class="review box">
+<div class="box">
   <article class="media">
     <div class="media-content">
       <div class="content">
@@ -16,8 +16,8 @@
           </div>
           <% if(locals.session) { %>
             <% if(locals.session.user === review.user_id) { %>
-              <div class="level-right has-icons">
-                <button class="button is-small">
+              <div class="level-right has-icons ">
+                <button class="my-review button is-small" data-albumid="<%= review.album_id %>" data-reviewid="<%= review.id %>">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>

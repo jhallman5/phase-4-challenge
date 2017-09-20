@@ -6,7 +6,11 @@ const getNumberOfReviews = (numOfReviews) =>
 const create = (userId, albumId, content) =>
   db.none('INSERT INTO reviews (user_id, album_id, content) VALUES ($1, $2, $3)',[userId, albumId, content])
 
+const destroy = (reviewId) =>
+  db.none('DELETE FROM reviews WHERE reviews.id = $1',[reviewId])
+
 module.exports = {
   getNumberOfReviews,
   create,
+  destroy,
 }

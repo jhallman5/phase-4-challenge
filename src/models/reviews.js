@@ -11,7 +11,11 @@ const getNumberOfReviews = (numOfReviews) =>
 const create = (userId, albumId, content) =>
   Reviews.create(userId, albumId, content)
 
+const destroy = (reviewId) =>
+  Reviews.destroy(reviewId)
+
 module.exports = {
   getNumberOfReviews,
   create,
+  destroy,
 }
