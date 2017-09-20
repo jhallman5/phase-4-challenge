@@ -14,11 +14,11 @@ passport.use('local', new LocalStrategy({
     .catch(error => done(error))
 ))
 
-passport.serializeUser( (user, done) => {
+passport.serializeUser((user, done) => {
   done(null, user.id)
 })
 
-passport.deserializeUser( (id, done) => {
+passport.deserializeUser((id, done) => {
   User.findById(id)
     .then(user => done(null, user))
     .catch(error => done(error))

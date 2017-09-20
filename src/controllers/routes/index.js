@@ -11,13 +11,10 @@ router.get('/', (req, res) => {
    Album.getAlbums()
     .then(albums => {
       Reviews.getNumberOfReviews(3)
-        .then(reviews => {
-          res.render('home', {albums, reviews, session: req.session.passport})
-        })
+        .then(reviews => res.render('home', {albums, reviews, session: req.session.passport}))
+        .catch(error => res.status(500).render('error', {error}))
     })
-    .catch(error => {
-      res.status(500).render('error', {error})
-    })
+    .catch(error => res.status(500).render('error', {error}))
 })
 
 router.get('/sign-up',(req, res) => {
@@ -28,11 +25,17 @@ router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
 
-router.post('/sign-up', (req, res) => {
+router.post('/sign-up', (req, res, next) => {
   const { username, email, password } = req.body
-
+  User.create(username, email, password)
+    .then(user => {
+      req.login(user, function(error) {
+        if (error) return next(error)
+        res.redirect('/profile');
+       })
+    })
 })
-router.post('/sign-in', (req, res, next) =>{
+router.post('/sign-in', (req, res, next) => {
   passport.authenticate('local',{ successRedirect: '/profile',
                                   failureRedirect: '/'})(req, res, next)
 })

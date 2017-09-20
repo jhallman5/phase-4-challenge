@@ -6,7 +6,11 @@ const findById = (id) =>
 const findByEmail = (email) =>
   db.oneOrNone('SELECT * from users WHERE users.email = $1',[email])
 
+const create = (username, email, password) =>
+  db.one('INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id', [username, email, password])
+
 module.exports = {
   findById,
-  findByEmail
+  findByEmail,
+  create
 }

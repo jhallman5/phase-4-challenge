@@ -22,7 +22,15 @@ const findById = (id) =>
 const findByEmail = (email) =>
   User.findByEmail(email)
 
+const create = (username, email, password) =>
+  User.create(username, email, password)
+    .then(user => {
+      console.log( "=-=-=-> user", user )
+      return user
+    })
+
 module.exports = {
   findById,
-  findByEmail
+  findByEmail,
+  create
 }
