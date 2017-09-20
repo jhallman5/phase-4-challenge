@@ -1,0 +1,42 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <div class="level">
+          <div class="level-left">
+            <a href="/albums/<%= review.album_id %>"> <em><%= review.title %></em></a>
+          </div>
+          <div class="level-right">
+            <small><%= review.created_on %></small>
+          </div>
+        </div>
+        <div class="level">
+          <div class="level-left">
+          <%= review.content %>
+          </div>
+          <% if(locals.session) { %>
+            <% if(locals.session.user === review.user_id) { %>
+              <div class="level-right has-icons ">
+                <button class="my-review button is-small" data-albumid="<%= review.album_id %>" data-reviewid="<%= review.id %>">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </div>
+            <% } %>
+          <% } %>
+        </div>
+          <div class="level">
+            <div class="level-left">
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                by
+              </div>
+              <div class="level-item">
+                <a href="/users/<%= review.user_id %>"><%= review.username %></a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </article>
+</div>

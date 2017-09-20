@@ -18,7 +18,11 @@ server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.urlencoded({extended: false}))
 server.use(session({
   secret: "IM A PICKLE!",
-  maxAge: 1000 * 60 * 60
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60
+  }
 }))
 server.use(passport.initialize());
 server.use(passport.session());

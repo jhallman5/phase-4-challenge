@@ -8,13 +8,17 @@
       <div class="control">
         <textarea class="textarea" name="content" placeholder="Let us know your thoughts!"></textarea>
         <div class="columns">
-          <div class="column is-offset-9">
-            <button class="button ">Submit</button>
-          </div>
+          <% if(locals.session) { %>
+            <div class="column is-offset-9">
+              <button class="button ">Submit</button>
+            </div>
+          <% } %>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+<script type="text/javascript" src="/new-review.js"></script>
 
 <%- include partials/footer %>

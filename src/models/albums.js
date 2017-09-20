@@ -3,10 +3,6 @@ const Albums = require('./db/queries/albums')
 
 const getAlbums = () =>
    Albums.getAlbums()
-    .then(albums => {
-      return albums
-    })
-
 
 const findById = (albumId) =>
   Albums.findById(albumId)
@@ -17,6 +13,7 @@ const findById = (albumId) =>
       reviews: album.map(review => ({
         id: review.review_id,
         user_id: review.user_id,
+        title: review.title,
         username: review.username,
         content: review.content,
         created_on: moment(review.created_on).format('MMM Do YYYY')

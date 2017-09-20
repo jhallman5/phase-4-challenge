@@ -35,6 +35,6 @@ Use the following commands to set up and seed your database:
 1. Nav bar disappears when the window size changes
 1. Cover- photo doesnt play nice with window size changes
 1. improve naming convention of Reviews.getNumberOfReviews
-1. Add moment to user profile
 1. user.findById ALSO brings user's reviews
 1. Add bcrypt
+1. FETCH is not reloading (or running its promise chain ?)

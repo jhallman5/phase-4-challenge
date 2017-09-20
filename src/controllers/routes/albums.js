@@ -18,6 +18,11 @@ router.post('/:albumId/reviews/new', (req, res) => {
     .catch( error => res.status(500).render('error', {error}))
 })
 
+router.delete('/:albumId/reviews/:reviewId', (req, res) => {
+  Review.destroy(req.params.reviewId)
+    .then(() => res.location('back'))
+})
+
 router.get('/:albumId', (req, res) => {
   Album.findById(req.params.albumId)
     .then(album => {

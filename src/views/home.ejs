@@ -23,9 +23,7 @@
     <h2>Recent Reviews</h2>
     <div class="review-list">
       <% reviews.forEach(function(review) { %>
-        <div>
-          <%= review.content %>
-        </div>
+        <%- include partials/review-card %>
       <% }) %>
     </div>
   </div>
