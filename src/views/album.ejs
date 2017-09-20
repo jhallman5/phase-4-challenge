@@ -17,9 +17,15 @@
         <a class="button" href="/albums/<%= album.id %>/reviews/new" >Add Review</a>
       </div>
     </div>
-    <% album.reviews.forEach(function(review) { %>
-      <%- include partials/review-card %>
-    <% }) %>
+    <% if(album.reviews[0].content){ %>
+      <% album.reviews.forEach(function(review) { %>
+        <%- include partials/review-card %>
+      <% }) %>
+    <% } else { %>
+      <div>
+        NO REVIEWS YET!
+      </div>
+    <% } %>
   </div>
 </div>
 

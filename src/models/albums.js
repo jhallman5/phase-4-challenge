@@ -7,7 +7,7 @@ const getAlbums = () =>
 const findById = (albumId) =>
   Albums.findById(albumId)
     .then(album => ({
-      id: album[0].album_id,
+      id: album[0].aid,
       title: album[0].title,
       artist: album[0].artist,
       reviews: album.map(review => ({
