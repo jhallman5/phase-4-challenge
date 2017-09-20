@@ -1,14 +1,15 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-<div class="level">
-  <div class="level-left">
-    <div class="image level-item">
-      <figure class="image is-128x128">
-        <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
-      </figure>
+<div class="columns">
+  <div class="column is-offset-1 is-3">
+    <div class="image ">
+        <figure class="image is-128x128">
+          <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
+        </figure>
+      </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="column has-text-centered is-4">
       <div class="level">
           <div class="level-left">
             <strong class="title"><%= user.username %></strong>
@@ -16,16 +17,15 @@
       </div>
       <div class="level">
           <div class="level-left">
-      email: <%= user.email %><br />
-      member since: <%= user.member_since %>
-    </div>
-</div>
-    </div>
-  </div>
-
-  </div>
-  <div class="column is-offset-1 is-4">
-    Reviews
+            email: <%= user.email %><br />
+            member since: <%= user.member_since %>
+          </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <strong class="title">Reviews</strong>
+        </div>
+      </div>
     <% if(user.reviews[0].content){ %>
       <% user.reviews.forEach(function(review) { %>
         <%- include partials/review-card %>
@@ -35,6 +35,8 @@
         NO REVIEWS YET!
       </div>
     <% } %>
+  </div>
+  </div>
   </div>
 </div>
 
