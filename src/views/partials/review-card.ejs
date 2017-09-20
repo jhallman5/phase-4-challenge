@@ -1,4 +1,4 @@
-<div class="box">
+<div class="review box">
   <article class="media">
     <div class="media-content">
       <div class="content">
@@ -14,8 +14,8 @@
           <div class="level-left">
           <%= review.content %>
           </div>
-          <% if(locals.user) { %>
-            <% if(locals.user.id === review.user_id) { %>
+          <% if(locals.session) { %>
+            <% if(locals.session.user === review.user_id) { %>
               <div class="level-right has-icons">
                 <button class="button is-small">
                   <i class="fa fa-trash" aria-hidden="true"></i>
