@@ -6,6 +6,7 @@ const User = require('../../models/users')
 const Album = require('../../models/albums')
 const Reviews = require('../../models/reviews')
 const passport = require('../../auth/passport')
+const { checkIfUserExists } = require('../middleware')
 
 router.get('/', (req, res) => {
    Album.getAlbums()
@@ -25,7 +26,7 @@ router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
 
-router.post('/sign-up', (req, res, next) => {
+router.post('/sign-up', checkIfUserExists, (req, res, next) => {
   const { username, email, password } = req.body
   User.create(username, email, password)
     .then(user => {
