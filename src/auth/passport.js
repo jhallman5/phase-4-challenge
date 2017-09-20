@@ -1,5 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
+const bcrypt = require('bcrypt')
 const User = require('../models/users')
 
 passport.use('local', new LocalStrategy({
@@ -8,8 +9,13 @@ passport.use('local', new LocalStrategy({
   User.findByEmail(email)
     .then(user => {
       if(!user) return done(null, false)
-      if(user.password != password) return done(null, false)
-      return done(null, user)
+      bcrypt.compare(password, user.password)
+          .then(result => {
+            (result)
+              ? done(null, user)
+              : done(null, false)
+        })
+        .catch(error => done(error))
     })
     .catch(error => done(error))
 ))

@@ -13,10 +13,12 @@
     "db:schema": "psql -d vinyl < src/models/db/schema.sql",
     "db:seed": "psql -d vinyl < src/models/db/seeds.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed",
+    "create:hash": "node src/models/db/create-hash.js",
     "test": "./node_modules/.bin/eslint src"
   },
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "bulma": "^0.5.2",
     "ejs": "^2.5.6",
