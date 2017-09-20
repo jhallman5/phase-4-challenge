@@ -22,10 +22,6 @@ router.get('/sign-up',(req, res) => {
   res.render('sign-up')
 })
 
-router.get('/sign-in', (req, res) => {
-  res.render('sign-in')
-})
-
 router.post('/sign-up', checkIfUserExists, (req, res, next) => {
   const { username, email, password } = req.body
   User.create(username, email, password)
@@ -36,6 +32,11 @@ router.post('/sign-up', checkIfUserExists, (req, res, next) => {
        })
     })
 })
+
+router.get('/sign-in', (req, res) => {
+  res.render('sign-in')
+})
+
 router.post('/sign-in', (req, res, next) => {
   passport.authenticate('local',{ successRedirect: '/profile',
                                   failureRedirect: '/'})(req, res, next)

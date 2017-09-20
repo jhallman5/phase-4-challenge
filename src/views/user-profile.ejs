@@ -4,32 +4,32 @@
 <div class="columns">
   <div class="column is-offset-1 is-3">
     <div class="image ">
-        <figure class="image is-128x128">
-          <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
-        </figure>
+      <figure class="image is-128x128">
+        <img src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="Placeholder image">
+      </figure>
+    </div>
+  </div>
+  <div class="column has-text-centered is-4">
+    <div class="level">
+      <div class="level-left">
+        <strong class="title"><%= user.username %></strong>
       </div>
     </div>
-    <div class="column has-text-centered is-4">
-      <div class="level">
-          <div class="level-left">
-            <strong class="title"><%= user.username %></strong>
-          </div>
+    <div class="level">
+      <div class="level-left">
+        Email: <%= user.email %>
       </div>
-      <div class="level">
-          <div class="level-left">
-            Email: <%= user.email %>
-          </div>
-        </div>
-        <div class="level">
-          <div class="level-left">
-            Date Joined: <%= user.member_since %>
-          </div>
-        </div>
-      <div class="level">
-        <div class="level-left">
-          <strong class="title">Reviews</strong>
-        </div>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        Date Joined: <%= user.member_since %>
       </div>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        <strong class="title">Reviews</strong>
+      </div>
+    </div>
     <% if(user.reviews[0].content){ %>
       <% user.reviews.forEach(function(review) { %>
         <%- include partials/review-card %>
@@ -39,8 +39,6 @@
         NO REVIEWS YET!
       </div>
     <% } %>
-  </div>
-  </div>
   </div>
 </div>
 
