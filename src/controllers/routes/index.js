@@ -30,6 +30,7 @@ router.post('/sign-up', (req, res, next) => {
   User.create(username, email, password)
     .then(user => {
       req.login(user, function(error) {
+        console.log( "=-=-=-> user inside login", user )
         if (error) return next(error)
         res.redirect('/profile');
        })
@@ -41,6 +42,7 @@ router.post('/sign-in', (req, res, next) => {
 })
 
 router.get('/profile', (req, res) => {
+  console.log( "=-=-=-> req.user", req.user )
   res.redirect(`/users/${req.user.id}`)
 })
 
