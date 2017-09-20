@@ -4,23 +4,52 @@
 <section class="hero">
   <img class="cover-photo" src="http://i.ebayimg.com/00/s/NjAyWDc5OA==/z/JJYAAOSwy4hUUM7I/$_32.JPG?set_id=880000500F" />
 </section>
-
 <div class="columns">
-
   <div class="column is-offset-2 is-4">
-    <h2>Records</h2>
+    <div class="level">
+      <div class="level-left">
+        <strong class="title">Records</strong>
+      </div>
+    </div>
     <div class="album-list">
       <% albums.forEach(function(album) { %>
-        <div>
-          <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-          <span><%= album.artist %></span>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <div class="level">
+                  <div class="level-left">
+                    <a href="/albums/<%= album.id%>"> <em><%= album.title %></em></a>
+                  </div>
+                  </div>
+                <div class="level">
+                  <div class="level-left">
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      by
+                    </div>
+                    <div class="level-item">
+                      <%= album.artist %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          </article>
         </div>
+
       <% }) %>
     </div>
   </div>
 
   <div class="column is-offset-1 is-4">
-    <h2>Recent Reviews</h2>
+    <div class="level">
+      <div class="level-left">
+        <strong class="title">Recent Reviews</strong>
+      </div>
+    </div>
     <div class="review-list">
       <% reviews.forEach(function(review) { %>
         <%- include partials/review-card %>

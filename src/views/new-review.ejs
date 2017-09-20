@@ -3,7 +3,11 @@
 
 <div class="columns">
   <div class="column is-offset-3 is-6">
-    New review for <em><%= album.title %></em>
+    <div class="level">
+      <div class="level-left">
+        New review for <em><%= album.title %></em>
+      </div>
+    </div>
     <form class="field" method="POST" action="/albums/<%= album.id %>/reviews/new">
       <div class="control">
         <textarea class="textarea" name="content" placeholder="Let us know your thoughts!"></textarea>
