@@ -1,5 +1,6 @@
 const moment = require('moment')
 const User = require('./db/queries/users')
+const bcrypt = require('bcrypt')
 
 const findById = (id) =>
   User.findById(id)
@@ -23,14 +24,17 @@ const findByEmail = (email) =>
   User.findByEmail(email)
 
 const create = (username, email, password) =>
-  User.create(username, email, password)
-  .then( user => ({
+bcrypt.hash(password, 10)
+  .then(hash =>
+    User.create(username, email, hash)
+    .then( user => ({
       id: user[0].id,
       username: user[0].username,
       email: user[0].email,
       member_since: moment(user[0].member_since).format('MMM Do YYYY'),
       reviews: null
-  }))
+    }))
+  )
 
 module.exports = {
   findById,

@@ -10,11 +10,15 @@ VALUES
 INSERT INTO
   users (username, email, password, member_since)
 VALUES
-  ('jhallman5', 'jhallman5@gmail.com', 'tomato', '1995-12-01'),
-  ('steven4', 'steven4@gmail.com', 'orange','1786-02-03'
+  ('jhallman5', 'jhallman5@gmail.com', '$2a$10$qPQRPdz7Ayv4v66IC8tbBOKFfh0Mqs07i3BTQPrmL19i6u.RhuLZa', '1995-12-01'),
+  ('steven4', 'steven4@gmail.com', '$2a$10$Y7MMYjbJNzwitC7pr6Z3HO5T4z/Gz7kPY/HOft5I6YhgU.RsZ5lqu','1786-02-03'
   ),
-  ('lisa3', 'lisa3@gmail.com', 'banana', '1984-09-05')
+  ('lisa3', 'lisa3@gmail.com', '$2a$10$OMUTik6.KcGg7agQ/bpAGevChMLZuTm.vcIf3aJtX6yxAZKkJQtR.', '1984-09-05')
 ;
+
+-- password for jhallman5 = tomato
+-- password for steven4 = orange
+-- password for lisa3 = banana
 
 INSERT INTO
   reviews (user_id, album_id, content, created_on)
